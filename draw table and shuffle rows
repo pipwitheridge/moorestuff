@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+
+<html>
+   
+<head>
+       
+    <meta charset="utf-8">
+
+    <title>Biblical Greek: Vocabulary Practice</title>
+
+    <style>
+        
+        h1 {
+          margin-top: 50px;
+        }
+
+        body {
+            background-color: rgb(255, 255, 253);
+            color: rgb(20, 20, 20);
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        p { 
+            color: rgb(20, 20, 20)
+        }
+
+        th{ 
+        color:rgb(255, 255, 255);
+            }
+
+        th {
+          background-color: rgb(131, 131, 131)
+        }
+
+        table {
+        width: 800px;
+        margin-top: 30px;
+      }
+
+    </style>
+
+</head>
+
+<body>
+    <br></br>
+
+    <h1>Biblical Greek: Vocabulary Practice</h1>
+
+    <p>This tool is designed to help students practice their Greek vocab.</p>
+
+    <br></br>
+
+    <button class="drawTable">Show the words!</button>
+
+    <button class="shuffleTable">Shuffle the rows!</button>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<table>
+    <tr  class="bg-info">
+        <th>Greek Word</th>
+        <th>Meaning</th>
+        <th>Frequency in NT</th>
+    </tr>
+
+    <tbody id="myTable">
+        
+   </tbody>
+</table>
+
+<script>
+	var myArray = [
+  {
+   "Subject": "GK1A",
+   "Why learning?": "Common in NT",
+   "Greek word": "ἀκολουθέω",
+   "Meaning (Moore College course)": "I follow (takes dative object)",
+   "Lesson": "19",
+   "Frequency in NT": 90,
+   "Grammatical note": "",
+   "(Greek 1) Full lexical entry": "ἀκολουθέω"
+ },
+ {
+   "Subject": "GK1A",
+   "Why learning?": "Common in NT",
+   "Greek word": "ζητέω",
+   "Meaning (Moore College course)": "I seek",
+   "Lesson": "19",
+   "Frequency in NT": 117,
+   "Grammatical note": "",
+   "(Greek 1) Full lexical entry": "ζητέω"
+ },
+ {
+   "Subject": "GK1A",
+   "Why learning?": "Common in NT",
+   "Greek word": "καλέω",
+   "Meaning (Moore College course)": "I call; invite; summon",
+   "Lesson": "19",
+   "Frequency in NT": 148,
+   "Grammatical note": "",
+   "(Greek 1) Full lexical entry": "καλέω"
+ },
+ {
+   "Subject": "GK1A",
+   "Why learning?": "Common in NT",
+   "Greek word": "κρατέω",
+   "Meaning (Moore College course)": "I hold; take hold of",
+   "Lesson": "19",
+   "Frequency in NT": 47,
+   "Grammatical note": "",
+   "(Greek 1) Full lexical entry": "κρατέω"
+ },
+ {
+   "Subject": "GK1A",
+   "Why learning?": "Common in NT",
+   "Greek word": "λαλέω",
+   "Meaning (Moore College course)": "I speak, talk",
+   "Lesson": "19",
+   "Frequency in NT": 296,
+   "Grammatical note": "",
+   "(Greek 1) Full lexical entry": "λαλέω"
+ },
+ {
+   "Subject": "GK1A",
+   "Why learning?": "Common in NT",
+   "Greek word": "ποιέω",
+   "Meaning (Moore College course)": "I make, do",
+   "Lesson": "19",
+   "Frequency in NT": 568,
+   "Grammatical note": "",
+   "(Greek 1) Full lexical entry": "ποιέω"
+ },
+ {
+   "Subject": "GK1A",
+   "Why learning?": "Common in NT",
+   "Greek word": "φωνέω",
+   "Meaning (Moore College course)": "I call; call out",
+   "Lesson": "19",
+   "Frequency in NT": 43,
+   "Grammatical note": "",
+   "(Greek 1) Full lexical entry": "φωνέω"
+ },
+ {
+   "Subject": "GK1A",
+   "Why learning?": "Common in NT",
+   "Greek word": "εἶχον",
+   "Meaning (Moore College course)": "I was having; keeping",
+   "Lesson": "20",
+   "Frequency in NT": 708,
+   "Grammatical note": "(Imperf. of ἔχω)",
+   "(Greek 1) Full lexical entry": "εἶχον"
+ },
+ {
+   "Subject": "GK1A",
+   "Why learning?": "Common in NT",
+   "Greek word": "ἤθελον",
+   "Meaning (Moore College course)": "I was wishing, desiring, wanting; willing",
+   "Lesson": "20",
+   "Frequency in NT": 208,
+   "Grammatical note": "(Imperf. of θέλω)",
+   "(Greek 1) Full lexical entry": "ἤθελον"
+ },
+ {
+   "Subject": "GK1A",
+   "Why learning?": "Common in NT",
+   "Greek word": "ἤμην",
+   "Meaning (Moore College course)": "I was, was existing",
+   "Lesson": "20",
+   "Frequency in NT": 2462,
+   "Grammatical note": "(Imperf. of εἰμί)",
+   "(Greek 1) Full lexical entry": "ἤμην"
+ },
+ {
+   "Subject": "GK1A",
+   "Why learning?": "Common in NT",
+   "Greek word": "ἄγω",
+   "Meaning (Moore College course)": "I lead, bring; go",
+   "Lesson": "21",
+   "Frequency in NT": 67,
+   "Grammatical note": "",
+   "(Greek 1) Full lexical entry": "ἄγω"
+ },
+ {
+   "Subject": "GK1A",
+   "Why learning?": "Common in NT",
+   "Greek word": "βάλλω",
+   "Meaning (Moore College course)": "I throw; put",
+   "Lesson": "21",
+   "Frequency in NT": 122,
+   "Grammatical note": "",
+   "(Greek 1) Full lexical entry": "βάλλω"
+ },
+ {
+   "Subject": "GK1A",
+   "Why learning?": "Common in NT",
+   "Greek word": "διδάσκω",
+   "Meaning (Moore College course)": "I teach",
+   "Lesson": "21",
+   "Frequency in NT": 97,
+   "Grammatical note": "",
+   "(Greek 1) Full lexical entry": "διδάσκω"
+ },
+ {
+   "Subject": "GK1A",
+   "Why learning?": "Common in NT",
+   "Greek word": "ἐγείρω",
+   "Meaning (Moore College course)": "trans. I raise, raise up; intrans. (impv) get up, rise",
+   "Lesson": "21",
+   "Frequency in NT": 144,
+   "Grammatical note": "",
+   "(Greek 1) Full lexical entry": "ἐγείρω"
+ },
+ {
+   "Subject": "GK1A",
+   "Why learning?": "Common in NT",
+   "Greek word": "θεραπεύω",
+   "Meaning (Moore College course)": "I heal",
+   "Lesson": "21",
+   "Frequency in NT": 43,
+   "Grammatical note": "",
+   "(Greek 1) Full lexical entry": "θεραπεύω"
+ },
+ {
+   "Subject": "GK1A",
+   "Why learning?": "Common in NT",
+   "Greek word": "λύω",
+   "Meaning (Moore College course)": "I loose, untie; release",
+   "Lesson": "21",
+   "Frequency in NT": 42,
+   "Grammatical note": "",
+   "(Greek 1) Full lexical entry": "λύω"
+ },
+ {
+   "Subject": "GK1A",
+   "Why learning?": "Common in NT",
+   "Greek word": "φέρω",
+   "Meaning (Moore College course)": "I bring, carry; bear",
+   "Lesson": "21",
+   "Frequency in NT": 66,
+   "Grammatical note": "",
+   "(Greek 1) Full lexical entry": "φέρω"
+ },
+ {
+   "Subject": "GK1A",
+   "Why learning?": "Common in NT",
+   "Greek word": "ἀποστέλλω",
+   "Meaning (Moore College course)": "I send; I send out",
+   "Lesson": "22",
+   "Frequency in NT": 132,
+   "Grammatical note": "",
+   "(Greek 1) Full lexical entry": "ἀποστέλλω"
+ }
+	]
+	
+	function buildTable(data){
+		var table = document.getElementById('myTable')
+    for (var i = 0; i < data.length; i++){
+  		var row = `<tr>
+							<td>${data[i]["Greek word"]}</td>
+							<td>${data[i]["Meaning (Moore College course)"]}</td>
+							<td>${data[i]["Frequency in NT"]}</td>
+					  </tr>`
+			table.innerHTML += row
+
+		}
+  }
+
+
+var shuffleTable = function() {
+  myArray.sort(function() { return 0.5 - Math.random() });
+}
+
+
+var drawTable = function() {
+  buildTable(myArray);
+}
+
+$("#shuffleTable").on("click", shuffleTable());
+$("#drawTable").on("click", drawTable());
+
+
+</script>
+
+</body>
+
+</html>
