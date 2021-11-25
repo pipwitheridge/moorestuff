@@ -113,7 +113,41 @@
             top: 0px;
             left: 0px;
           }
-        
+
+          
+          #goButton {
+          top: 30px; 
+          left: 80px;
+          font-size: 20px;
+          font-weight: 200;
+          letter-spacing: 1px;
+          padding: 8px 8px 8px;
+          outline: 0;
+          border: 1px solid black;
+          cursor: pointer;
+          position: relative;
+          background-color: rgba(0, 0, 0, 0);
+          
+          
+        }
+
+        #goButton::after {
+          content: "";
+          background-color: #ffe54c;
+          width: 100%;
+          z-index: -1;
+          position: absolute;
+          height: 100%;
+          top: 7px;
+          left: 7px;
+          transition: 0.2s;
+          padding-left: 10px;
+        }
+
+        #goButton:hover::after {
+            top: 0px;
+            left: 0px;
+          }
         
 
     </style>
@@ -149,6 +183,8 @@
     <button id="drawTable">Show the words!</button>
 
     <button id="shuffleTable">Shuffle the rows!</button>
+
+    <button id="goButton">Go!</button>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -364,37 +400,44 @@
 		}
   }
 
-
 var shuffleTable = function() {
   myArray.sort(function() { return 0.5 - Math.random() });
 }
-
 
 var drawTable = function() {
   buildTable(myArray);
 }
 
-var drawButton = document.getElementById("drawTable");
+var goButton = document.getElementById("goButton");
     // 2. Define the function that will respond to the event.
     // callback 
-    var onDrawButtonClick = function() {
-        drawButton.textContent = "Oh wow, you clicked me!";
+
+    var onGoButtonClick = function() {
+    goButton.textContent = "Oh wow, you clicked me!";
     };
     // 3. Add the event listener for the element and function
     // anonymous "inline"
-    drawButton.addEventListener("click", drawTable);
+    goButton.addEventListener("click", goButtonFunction);
+ 
 
 
 
-  var shuffleButton = document.getElementById("shuffleTable");
-    // 2. Define the function that will respond to the event.
-    // callback 
-    var onShuffleButtonClick = function() {
-        shuffleButton.textContent = "Oh wow, you clicked me!";
-    };
-    // 3. Add the event listener for the element and function
-    // anonymous "inline"
-    shuffleButton.addEventListener("click", shuffleTable);
+var resetTable = function () {
+  table.innerHTML = null;
+}
+
+
+
+var goButtonFunction = function () {
+    shuffleTable();   
+    drawTable();  
+    onGoButtonClick();
+}
+
+  $("#goButton").unbind("click").on("click", function(){
+    goButtonFunction();
+    });
+
 
 
 </script>
