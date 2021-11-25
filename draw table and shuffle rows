@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html>
@@ -10,56 +9,131 @@
     <title>Biblical Greek: Vocabulary Practice</title>
 
     <style>
+
+        html, body, p, table, h1 {
+            margin-left: 30px;
+            margin-right:30px;
         
+        }
+
+        html { 
+          margin-top: 20px;
+          margin-bottom: 10px;
+        }
+
         h1 {
-          margin-top: 50px;
+          margin-top: 30px;
         }
 
         body {
             background-color: rgb(255, 255, 253);
             color: rgb(20, 20, 20);
-            margin-top: 10px;
-            margin-left: 10px;
         }
 
         p { 
-            color: rgb(20, 20, 20)
+          padding-top: 30px;  
+          color: rgb(20, 20, 20)
+      
         }
 
-        th{ 
-        color:rgb(255, 255, 255);
-            }
 
-        th {
-          background-color: rgb(131, 131, 131)
+        th{ 
+        margin-top: 20px;
+        color:rgb(255, 255, 255);
+        background-color: rgb(131, 131, 131)
         }
 
         table {
         width: 800px;
-        margin-top: 30px;
-      }
+        margin-top: 60px;
+        }
+
+        #drawTable {
+          top: 30px; 
+          left: 30px; 
+          font-size: 20px;
+          font-weight: 200;
+          letter-spacing: 1px;
+          padding: 8px 8px 8px;
+          outline: 0;
+          border: 1px solid black;
+          cursor: pointer;
+          position: relative;
+          background-color: rgba(0, 0, 0, 0);
+        }
+
+        #drawTable::after {
+          content: "";
+          background-color: #ffe54c;
+          width: 100%;
+          z-index: -1;
+          position: absolute;
+          height: 100%;
+          transition: 0.2s;
+          top: 7px;
+          left: 7px;
+        }
+
+        #drawTable:hover::after {
+            top: 0px;
+            left: 0px;
+          }
+
+
+          #shuffleTable {
+          top: 30px; 
+          left: 50px;
+          font-size: 20px;
+          font-weight: 200;
+          letter-spacing: 1px;
+          padding: 8px 8px 8px;
+          outline: 0;
+          border: 1px solid black;
+          cursor: pointer;
+          position: relative;
+          background-color: rgba(0, 0, 0, 0);
+          
+          
+        }
+
+        #shuffleTable::after {
+          content: "";
+          background-color: #ffe54c;
+          width: 100%;
+          z-index: -1;
+          position: absolute;
+          height: 100%;
+          top: 7px;
+          left: 7px;
+          transition: 0.2s;
+          padding-left: 10px;
+        }
+
+        #shuffleTable:hover::after {
+            top: 0px;
+            left: 0px;
+          }
+        
+        
 
     </style>
 
 </head>
 
 <body>
-    <br></br>
 
     <h1>Biblical Greek: Vocabulary Practice</h1>
 
     <p>This tool is designed to help students practice their Greek vocab.</p>
 
-    <br></br>
+    <button id="drawTable">Show the words!</button>
 
-    <button class="drawTable">Show the words!</button>
-
-    <button class="shuffleTable">Shuffle the rows!</button>
+    <button id="shuffleTable">Shuffle the rows!</button>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
 
 <table>
     <tr  class="bg-info">
@@ -280,9 +354,27 @@ var drawTable = function() {
   buildTable(myArray);
 }
 
-$("#shuffleTable").on("click", shuffleTable());
-$("#drawTable").on("click", drawTable());
+var drawButton = document.getElementById("drawTable");
+    // 2. Define the function that will respond to the event.
+    // callback 
+    var onDrawButtonClick = function() {
+        drawButton.textContent = "Oh wow, you clicked me!";
+    };
+    // 3. Add the event listener for the element and function
+    // anonymous "inline"
+    drawButton.addEventListener("click", drawTable);
 
+
+
+  var shuffleButton = document.getElementById("shuffleTable");
+    // 2. Define the function that will respond to the event.
+    // callback 
+    var onShuffleButtonClick = function() {
+        shuffleButton.textContent = "Oh wow, you clicked me!";
+    };
+    // 3. Add the event listener for the element and function
+    // anonymous "inline"
+    shuffleButton.addEventListener("click", shuffleTable);
 
 </script>
 
